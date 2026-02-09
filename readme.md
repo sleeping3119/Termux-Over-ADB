@@ -1,4 +1,4 @@
-# 🚀 Termux Environment Over ADB
+  # 🚀 Termux Environment Over ADB
 
 [![Termux](https://img.shields.io/badge/Termux-Environment-green?logo=termux&style=for-the-badge)](https://termux.dev/en/)
 [![ADB](https://img.shields.io/badge/ADB-Android_Debug_Bridge-blue?logo=android&style=for-the-badge)](https://developer.android.com/studio/command-line/adb)
@@ -85,14 +85,15 @@ Once you have switched users (via `run-as` or `su`), run the following command t
 export $(cat /data/data/com.termux/files/home/env | xargs) && bash
 ```
 
-> [!IMPORTANT] **Permission Denied?**
+> [!IMPORTANT]
+> **Permission Denied?**
 > If you get a "Permission Denied" error here, it means you are not running as the Termux user or Root. The standard `shell` user cannot access these files. Ensure Step 3 was successful.
 
-> [!TIP] **Custom Shells:**
+> [!TIP]
+> **Custom Shells:**
 > Termux uses `bash` by default. If you use a different shell (like `zsh` or `fish`), replace `&& bash` with `&& zsh`.
 > This process will automatically load your shell configuration files (like `.bashrc` or `.zshrc`).
-
-
-> [!TIP] **Shortcut for Windows**
-> Add the funtions in (sample.ps1)[sample.ps1] to your powershell profile by running `notepad $PROFILE` in poweshell.
+> 
+> **Shortcut for Windows:**
+> Add the funtions in [sample.ps1](sample.ps1) to your powershell profile by running `notepad $PROFILE` in poweshell.
 > Then you can just call the funtions instead of writing all commands again.
