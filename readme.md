@@ -46,24 +46,24 @@ adb shell
 
 Depending on your root status, use one of the following methods to switch to the Termux user context.
 
-#### 🅰️ Method A: Non-Rooted Devices
+#### 🅰️ Method A: Recommended for Non-Rooted & Rooted Devices
 
-If you are using the **Debug** version of Termux (as required), use `run-as`:
+You need **Debug** version of Termux for this method:
 
 ```bash
 run-as com.termux
 ```
-
 > [!WARNING]
 > If you get an error here, it means the app is not debuggable. Please check the **Prerequisites** section and install the Debug APK.
 
-#### 🅱️ Method B: Rooted Devices
+#### 🅱️ Method B: Only Rooted Devices
 
 You have two choices.
 
-**Option 1: Impersonate Termux User (Recommended)**:
+**Option 1: Impersonate Termux User (Only tested on ksu)**:
 
-This command finds the UID of the Termux app and switches to it, giving you the exact privileges of the app.
+This command finds the UID of the Termux app and switches to it, giving you the exact privileges of the app. 
+This method depends on your root type so it may fail, if you are not using ksu.
 
 ```bash
 su - $(pm list packages -U | grep "com.termux " | grep -o '[0-9]*$')
