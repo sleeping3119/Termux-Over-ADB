@@ -1,5 +1,5 @@
 function Enter-TermuxDebug {
-    $cmd = 'run-as com.termux sh -c ''export $(cat files/home/env | xargs) && exec bash'''
+    $cmd = 'run-as com.termux sh -c ''export $(cat files/home/env | xargs); cd $HOME; exec $SHELL'''
 
     # Check for device connection
     $deviceCheck = adb devices | Select-String -Pattern "\tdevice"
@@ -12,7 +12,7 @@ function Enter-TermuxDebug {
 }
 
 function Enter-Termux-root {    
-    $cmd = 'uid=$(pm list packages -U | grep "com.termux " | grep -o "[0-9]*$" | head -n 1); su - $uid -c ''export $(cat /data/data/com.termux/files/home/env | xargs) && exec bash'''
+    $cmd = 'uid=$(pm list packages -U | grep "com.termux " | grep -o "[0-9]*$" | head -n 1); su - $uid -c ''export $(cat /data/data/com.termux/files/home/env | xargs) && exec $SHELL'''
 
     # Check connection
     $deviceCheck = adb devices | Select-String -Pattern "\tdevice"
