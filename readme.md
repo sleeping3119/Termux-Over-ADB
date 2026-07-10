@@ -82,7 +82,7 @@ su
 Once you have switched users (via `run-as` or `su`), run the following command to load the environment variables and start your shell.
 
 ```bash
-export $(cat /data/data/com.termux/files/home/env | xargs) && bash
+export $(cat /data/data/com.termux/files/home/env | xargs) && exec $SHELL
 ```
 
 > [!IMPORTANT]
@@ -90,10 +90,6 @@ export $(cat /data/data/com.termux/files/home/env | xargs) && bash
 > If you get a "Permission Denied" error here, it means you are not running as the Termux user or Root. The standard `shell` user cannot access these files. Ensure Step 3 was successful.
 
 > [!TIP]
-> **Custom Shells:**
-> Termux uses `bash` by default. If you use a different shell (like `zsh` or `fish`), replace `&& bash` with `&& zsh`.
-> This process will automatically load your shell configuration files (like `.bashrc` or `.zshrc`).
-> 
 > **Shortcut for Windows:**
 > Add the funtions in [sample.ps1](sample.ps1) to your powershell profile by running `notepad $PROFILE` in poweshell.
 > Then you can just call the funtions instead of writing all commands again.
